@@ -16,7 +16,7 @@ const startGameBrain = (userName, gameMessage, gameQuestions, expectedAnswers) =
       break
     }
 
-    if (i === 3) {
+    if (i === 2) {
       console.log(`Congratulations, ${userName}!`)
     }
   }
