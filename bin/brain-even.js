@@ -4,9 +4,9 @@ import askName from '../src/cli.js'
 
 const userName = askName()
 
-import startGameBrainEven from '../src/brain-even-src.js'
+import getGameParameters from '../src/getGameParameters.js'
 
-const [gameMessage, gameQuestions, expectedAnswers] = startGameBrainEven()
+const [gameMessage, gameQuestions, expectedAnswers] = getGameParameters('brainEven')
 
 import startGameBrain from '../src/index.js'
 
