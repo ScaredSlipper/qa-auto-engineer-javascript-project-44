@@ -1,29 +1,17 @@
-import readLineSync from 'readline-sync'
+const startGameBrainEven = () => {
+  const gameMessage = 'Answer "yes" if the number is even, otherwise answer "no".'
 
-const startGameBrainEven = (userName) => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".')
+  const gameQuestions = []
+  const expectedAnswers = []
 
-  for (let i = 1; i < 4; i++) {
-    const num = Math.floor(Math.random() * 100) //  zero is even
+  for (let i = 0; i < 3; i++) {
+    const gameQuestion = Math.floor(Math.random() * 100)
+    gameQuestions.push(gameQuestion)
 
-    console.log(`Question: ${num}`)
-
-    const answer = readLineSync.question('Your answer: ')
-
-    const expectedAnswer = num % 2 === 0 ? 'yes' : 'no'
-
-    if (expectedAnswer === answer) {
-      console.log('Correct!')
-    }
-    else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'. \n Let's try again, ${userName}!`)
-      break
-    }
-
-    if (i === 3) {
-      console.log(`Congratulations, ${userName}!`)
-    }
+    const expectedAnswer = gameQuestion % 2 === 0 ? 'yes' : 'no'
+    expectedAnswers.push(expectedAnswer)
   }
+  const gameParameters = [gameMessage, gameQuestions, expectedAnswers]
+  return gameParameters
 }
-
 export default startGameBrainEven
