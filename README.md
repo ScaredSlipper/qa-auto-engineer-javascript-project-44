@@ -5,4 +5,5 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ScaredSlipper_qa-auto-engineer-javascript-project-44&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=ScaredSlipper_qa-auto-engineer-javascript-project-44)
 
 ### asciinema
-https://asciinema.org/a/MpbgIQIAlWFJHmkT
+### brain-even: https://asciinema.org/a/MpbgIQIAlWFJHmkT
+### brain-calc: https://asciinema.org/a/p3P7CwrV5bi9xw7e
