@@ -89,7 +89,7 @@ const getGameBrainProgressionSpec = () => {
 
 const generateProgression = () => {
   const start = _.random(50)
-  const step = _.random(20)
+  const step = _.random(1, 20)
   const progressionArray = []
 
   for (let i = 0; i < 10; i++) {
