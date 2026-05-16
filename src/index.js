@@ -1,18 +1,24 @@
 import readLineSync from 'readline-sync'
+import askName from '../src/cli.js'
+import getGameSpecifics from './brain-games-lgc.js'
 
-const startGameBrain = (userName, gameMessage, gameQuestions, expectedAnswers) => {
+const startGameBrain = (game) => {
+  const userName = askName()
+
+  const [gameMessage, ,] = getGameSpecifics(game)
   console.log(gameMessage)
 
   for (let i = 0; i < 3; i++) {
-    console.log(`Question: ${gameQuestions[i]}`)
+    const [, gameQuestion, expectedAnswer] = getGameSpecifics(game)
+    console.log(`Question: ${gameQuestion}`)
 
     const answer = readLineSync.question('Your answer: ')
 
-    if (expectedAnswers[i] === answer) {
+    if (expectedAnswer === answer) {
       console.log('Correct!')
     }
     else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswers[i]}'. \n Let's try again, ${userName}!`)
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${expectedAnswer}'. \nLet's try again, ${userName}!`)
       break
     }
 
@@ -22,20 +28,4 @@ const startGameBrain = (userName, gameMessage, gameQuestions, expectedAnswers) =
   }
 }
 
-import getGameSpecifics from './brain-games-lgc.js'
-
-const getGameParameters = (game) => {
-  const [gameMessage, ,] = getGameSpecifics(game)
-
-  const gameQuestions = []
-  const expectedAnswers = []
-
-  for (let i = 0; i < 3; i++) {
-    const [, gameQuestion, expectedAnswer] = getGameSpecifics(game)
-    gameQuestions.push(gameQuestion)
-    expectedAnswers.push(expectedAnswer)
-  }
-  const gameParameters = [gameMessage, gameQuestions, expectedAnswers]
-  return gameParameters
-}
-export { startGameBrain, getGameParameters }
+export default startGameBrain
